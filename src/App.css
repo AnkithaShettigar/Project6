@@ -777,7 +777,7 @@ font-size: 17px;
   }
   .hr1{
     width: 450px;
-    position: fixed;
+    position: absolute;
     margin-top: -220px;
     margin-left: 10px;
     border: 0.2px solid rgb(207, 207, 207);
