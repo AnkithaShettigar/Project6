@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 import Bollyfirst from "./Bollyfirst";
 import Bollysecond from "./Bollysecond";
-import { mainFood,mainSixth} from "./MockData";
 import { AiOutlineMenu,AiOutlineClose} from "react-icons/ai";
 import { useRef } from "react";
+import { Articles } from "./Articles";
+
 
 
 const Food = ()=>{
@@ -12,6 +13,10 @@ const Food = ()=>{
     const showNavbar=()=>{
         navRef.current.classList.toggle("responsive_nav");
     }
+
+    const mainFood = Articles.filter((item)=>item.category==="mainFood")
+  const mainSixth = Articles.filter((item)=>item.category==="mainSixth")
+
     return(
        <div>
          <span className="cross">The</span>
@@ -43,8 +48,7 @@ const Food = ()=>{
                  mainFood.map((item4,index4)=>{
                     return(
                         <>
-
-                        <Bollyfirst bollyhead={item4.bollyhead } bollydesc={item4.bollydesc} bollytags={item4.bollytags} bollyimg={item4.bollyimg}/>
+                       <Link to={`/pages/about/${item4.id}`} className="two"><Bollyfirst bollyhead={item4.heading } bollydesc={item4.describe} bollytags={item4.tags} bollyimg={item4.image}/></Link>
                         </>
                     )
                  })
@@ -68,19 +72,21 @@ const Food = ()=>{
                     <hr className="hr5"/>
                 </div>
                 <div className="toppost">
+                    <Link to={`/pages/about/${67}`}className="two">
                     <div className="food"><br />
                     <h1 className="no1">1</h1>
                     <h3 className="top1text">'Nutrient foods'</h3>
                     <span className="travel">Travel</span>
                     <span className="travel1">/ August 21 2017</span>
                     </div>
+                    </Link>
                     <hr className="hr6" />
                     {
                  mainSixth.map((item5,index5)=>{
                     return(
                         <>
-
-                        <Bollysecond secnum={item5.secnum } sectitle={item5.sectitle} sectags={item5.sectags} secimg={item5.secimg}/>
+                         <Link to={`/pages/about/${item5.id}`} className="two"><Bollysecond secnum={item5.number } sectitle={item5.heading} sectags={item5.tags} secimg={item5.image}/>
+                          </Link>
                         </>
                     )
                  })

@@ -3,10 +3,11 @@ import Banner from "./Banner";
 import Homepage from "./Homepage";
 import Middle from "./Middle";
 import { ImageWithTitle } from "./ImageWithTitle";
-import { Latest,mainHome,mainMiddle ,mainPage} from "./MockData";
+import { mainPage} from "./Articles";
 import Bottompage from "./Bottompage";
 import { AiOutlineMenu,AiOutlineClose} from "react-icons/ai";
 import { useRef } from "react";
+import { Articles } from "./Articles";
 
 const Home = () =>{
   const navRef = useRef();
@@ -14,6 +15,10 @@ const Home = () =>{
   const showNavbar=()=>{
       navRef.current.classList.toggle("responsive_nav");
   }
+  const Latest = Articles.filter((item)=>item.category==="Latest")
+  const mainHome = Articles.filter((item)=>item.category==="mainHome")
+  const mainMiddle = Articles.filter((item)=>item.category==="mainMiddle")
+
   return(
      <div>
        <span className="cross">The</span>
@@ -50,7 +55,7 @@ const Home = () =>{
             <hr className="hr2"/>
             <div className="latest1">
             {
-                Latest.map((item,index)=>{return( <Link to={`/pages/about/${item.id}`} className="two"><ImageWithTitle header={item.header} description={item.description} tags={item.tags} imgurl={item.background}/></Link> )})
+                Latest.map((item,index)=>{return( <Link to={`/pages/about/${item.id}`} className="two"><ImageWithTitle header={item.heading} description={item.describe} tags={item.tags} imgurl={item.image}/></Link> )})
             }
            
             </div> 
@@ -69,7 +74,7 @@ const Home = () =>{
                     return(
                         <>
 
-                        <Homepage headding={item1.headding } brief={item1.brief} data={item1.data} backimg={item1.backimg}/>
+                    <Link to={`/pages/about/${item1.id}`} className="two"><Homepage headding={item1.heading } brief={item1.describe} data={item1.tags} backimg={item1.image}/></Link>
                         </>
                     )
                  })
@@ -95,19 +100,21 @@ const Home = () =>{
                     <hr className="hr5"/>
                 </div>
                 <div className="toppost">
+                    <Link to={`/pages/about/${15}`}className="two">
                     <div className="top1">
                     <h1 className="no1">1</h1>
                     <h3 className="top1text">Kanyakumari,Tamil Nadu</h3>
                     <span className="travel">Travel</span>
                     <span className="travel1">/ August 21 2017</span>
                     </div>
+                    </Link>
                     <hr className="hr6" />
                     {
                          mainMiddle.map((item2,index2)=>{
                             return(
                                 <>
         
-                                <Middle number={item2.number } toptext={item2.toptext} midtext={item2.midtext} textimg={item2.textimg}/>
+                               <Link to={`/pages/about/${item2.id}`} className="two"><Middle number={item2.number } toptext={item2.heading} midtext={item2.tags} textimg={item2.image}/></Link>
                                 </>
                             )
                          })
@@ -128,7 +135,7 @@ const Home = () =>{
                             return(
                                 <>
         
-                                <Bottompage titlehead={item3.titlehead } deschead={item3.deschead} taghead={item3.taghead} />
+                                <Bottompage titlehead={item3.heading } deschead={item3.describe} taghead={item3.tags} />
                                 </>
                             )
                          })

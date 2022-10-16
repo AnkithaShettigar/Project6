@@ -2,7 +2,7 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { Articles } from './Articles';
 import Bottombox from './Bottombox';
-import { bottom } from './MockData';
+import { bottom } from './Articles';
 import { FaFacebookSquare,FaTwitterSquare,FaInstagramSquare ,FaYoutube} from "react-icons/fa";
 import { IoIosArrowBack} from "react-icons/io";
 import { Link } from 'react-router-dom';
@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
     const URLParams = useParams();
     const currentBlog = Articles.find(item => item.id === Number(URLParams.id))
 
-    const {heading,image,describe} = currentBlog
+    const {heading,image,descr} = currentBlog
   return (
     <>
         
@@ -48,7 +48,7 @@ import { Link } from 'react-router-dom';
         <div className="img2">
         <img src={image} alt="" className='image2'/>
         </div>
-        <p className='des'>{describe}</p>
+        <p className='des'>{descr}</p>
 
         <p>Let's talk about them</p>
         <div className="img3">
