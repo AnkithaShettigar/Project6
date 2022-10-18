@@ -735,6 +735,11 @@ font-size: 17px;
   visibility: hidden;
   opacity: 0;
 }
+
+.notfound{
+  margin:auto;
+  text-align: center;
+}
 @media(max-width:480px){
   .nav-btn{
     visibility: visible;

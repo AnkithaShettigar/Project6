@@ -7,6 +7,7 @@ import Hollywood from './components/Hollywood';
 import Fitness from './components/Fitness';
 import Food from './components/Food';
 import About from './components/About';
+import Pagenot from './components/Pagenot';
 
 
 
@@ -24,6 +25,7 @@ function App() {
     <Route path = "/fitness" element = {<Fitness/>}/>
     <Route path = "/food" element = {<Food/>}/>
     <Route path = "/pages/about/:id"element={<About/>}/>
+    <Route path = "/*" element={<Pagenot/>}/>
     </Routes>
     </BrowserRouter>
     </div>
